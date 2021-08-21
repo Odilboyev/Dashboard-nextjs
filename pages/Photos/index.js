@@ -1,8 +1,8 @@
 import { Box, Card, CardActionArea, CardContent, CardMedia, CircularProgress, makeStyles, Slide, Table, TableBody, TableCell, TableHead, TableRow, Typography, Zoom } from '@material-ui/core';
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
 import { setTodos } from '../../redux/actions';
+import Dashboard from '../Dashboard';
 import PhotosWrapper from './PhotosWrapper';
 
 const useStyles = makeStyles({
@@ -12,8 +12,6 @@ const useStyles = makeStyles({
     },
 });
 const Photos = () => {
-    const { menu } = useParams();
-    console.log("userni ichida", menu);
     const classes = useStyles();
     const dispatch = useDispatch();
 
@@ -25,6 +23,7 @@ const Photos = () => {
     const loading = useSelector(state => state.loading)
 
     return (
+        <Dashboard>
         <PhotosWrapper>
             <h1 className="mb-4">Photos</h1>
 
@@ -54,7 +53,8 @@ const Photos = () => {
                 )}
             </Box>
             }
-        </PhotosWrapper>
+            </PhotosWrapper>
+            </Dashboard>
     )
 }
 

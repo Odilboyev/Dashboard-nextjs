@@ -4,8 +4,7 @@ import { CircularProgress, Table, TableBody, TableCell, TableHead, TableRow } fr
 import React, { useEffect } from 'react'
 import { Fade } from 'react-awesome-reveal';
 import { useDispatch, useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
-import Dashboard from '../../containers/Dashboard'
+import Dashboard from '../Dashboard'
 import { setTodos } from '../../redux/actions';
 import TodosWrapper from './TodosWrapper'
 
@@ -13,8 +12,6 @@ import { Slide } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 
 const Todos = () => {
-    const { menu } = useParams();
-    console.log("todoni ichida", menu);
 
     const dispatch = useDispatch();
 
@@ -26,6 +23,7 @@ const Todos = () => {
     const loading = useSelector(state => state.loading)
 
     return (
+        <Dashboard>
         <TodosWrapper>
             <h1 className="mb-4">Todo</h1>
 
@@ -60,7 +58,8 @@ const Todos = () => {
                     )}
                 </TableBody>
                 </Table>}
-        </TodosWrapper>
+            </TodosWrapper>
+            </Dashboard>
     )
 }
 

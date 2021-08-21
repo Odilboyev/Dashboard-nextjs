@@ -20,7 +20,7 @@ const useStyles = makeStyles({
 });
 
 const zoomIn = true;
-const Home = () => {
+const HomeContainer = () => {
     const classes = useStyles();
     return (
 
@@ -49,4 +49,4 @@ const Home = () => {
     )
 }
 
-export default Home
+export default HomeContainer
